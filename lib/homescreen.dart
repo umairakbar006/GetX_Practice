@@ -17,9 +17,14 @@ class _homescreenState extends State<Homescreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.dark_mode_outlined),
+            icon: Icon(
+              Get.isDarkMode ? Icons.light_mode : Icons.dark_mode_outlined,
+            ),
             onPressed: () {
-              Get.changeTheme(ThemeData.dark());
+              Get.changeTheme(
+                Get.isDarkMode ? ThemeData.light() : ThemeData.dark(),
+              );
+              setState(() {});
             },
           ),
         ],
