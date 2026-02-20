@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -10,6 +11,17 @@ class Homescreen extends StatefulWidget {
 class _homescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: Text('GetX Practice'), centerTitle: true),
+      body: Column(
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              Get.snackbar('Message', 'This is snackbar');
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
