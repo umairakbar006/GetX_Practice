@@ -12,7 +12,18 @@ class _homescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('GetX Practice'), centerTitle: true),
+      appBar: AppBar(
+        title: Text('GetX Practice'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.dark_mode_outlined),
+            onPressed: () {
+              Get.changeTheme(ThemeData.dark());
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           ListTile(
