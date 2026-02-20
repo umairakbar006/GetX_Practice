@@ -15,12 +15,23 @@ class _homescreenState extends State<Homescreen> {
       appBar: AppBar(title: Text('GetX Practice'), centerTitle: true),
       body: Column(
         children: [
-          FloatingActionButton(
-            onPressed: () {
-              Get.snackbar('Message', 'This is snackbar');
+          ListTile(
+            title: Text('Dialogue'),
+            onTap: () {
+              Get.defaultDialog(
+                title: 'Title',
+                cancel: TextButton(onPressed: () {}, child: Text('Cancel')),
+                confirm: TextButton(onPressed: () {}, child: Text('Confirm')),
+              );
             },
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          Get.snackbar('Message', 'This is snackbar');
+        },
       ),
     );
   }
