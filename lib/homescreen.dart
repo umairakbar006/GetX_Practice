@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 
 class Homescreen extends StatefulWidget {
@@ -17,9 +18,7 @@ class _homescreenState extends State<Homescreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(
-              Get.isDarkMode ? Icons.light_mode : Icons.dark_mode_outlined,
-            ),
+            icon: Icon(Get.isDarkMode ? Icons.dark_mode : Icons.light_mode),
             onPressed: () {
               Get.changeTheme(
                 Get.isDarkMode ? ThemeData.light() : ThemeData.dark(),
@@ -29,19 +28,28 @@ class _homescreenState extends State<Homescreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          ListTile(
-            title: Text('Dialogue'),
-            onTap: () {
-              Get.defaultDialog(
-                title: 'Title',
-                cancel: TextButton(onPressed: () {}, child: Text('Cancel')),
-                confirm: TextButton(onPressed: () {}, child: Text('Confirm')),
-              );
-            },
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ListTile(title: Text('message'.tr), subtitle: Text('name'.tr)),
+            SizedBox(height: Get.height * 0.2),
+            TextButton(
+              onPressed: () {
+                Get.updateLocale(Locale('ur', 'PK'));
+              },
+              child: Text('Urdu'),
+            ),
+            SizedBox(width: Get.width * 0.02),
+            TextButton(
+              onPressed: () {
+                Get.updateLocale(Locale('en', 'US'));
+              },
+              child: Text('English'),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

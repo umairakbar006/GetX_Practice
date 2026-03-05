@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_practice/languages.dart';
 import 'homescreen.dart';
 
 void main() {
@@ -12,6 +13,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(home: Homescreen());
+    return GetMaterialApp(
+      home: Homescreen(),
+      locale: Locale('en', 'US'),
+      fallbackLocale: Locale('en', 'US'),
+      translations: Languages(),
+    );
   }
 }
